@@ -22,9 +22,12 @@ module.exports = {
         Post.findOneAndUpdate(
             { _id: req.params.id },
             { title: req.body.title, content: req.body.content }
-        ).then(result => {
-            res.json(result);
+        ).then(() => {
+            console.log("Hello")
         });
+        // .then(result => {
+        //     res.json(result);
+        // });
     },
 
     destroy: (req, res) => {
