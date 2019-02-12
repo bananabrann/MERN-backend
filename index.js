@@ -2,17 +2,22 @@ const express = require("express");
 const parser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("./db/connection");
-const Post = require("./models/Post");
 const routes = require("./routes/switchboard")
+const Post = require("./models/Post");
+
+console.log("index: Arrived")
 
 const app = express();
 
 app.use("/", routes)
 app.set("port", process.env.PORT || 3001);
 app.use(parser.json());
+app.use(
+    parser.urlencoded({
+      extended: true
+    })
+  );
 app.use(cors());
-
-
 
 // app.get("/", (req, res) => {
 //     Post.find().then(results => {

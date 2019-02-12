@@ -1,9 +1,13 @@
-const { Post } = require("../models/Post");
+const Post = require("../models/Post");
 
 module.exports = {
     index: (req, res) => {
-        Post.find({}).then(result => {
-            res.json(result);
-        });
-    },
+        console.log("controllers/app: index");
+
+        Post.find({})
+            .then(result => {
+                res.json(result);
+            })
+        // res.send("hi");
+    }
 };
