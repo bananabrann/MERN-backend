@@ -19,6 +19,8 @@ module.exports = {
         })},
 
     destroy: (req, res) => {
-        Post.findOneAndRemove({_id: req.params.id }).then(res.direct("/"))
+        Post.findOneAndRemove({_id: req.params.id })
+        // .then(res.direct("/"))
+        .then(() => {res.direct("/")})
     }
 }
