@@ -13,10 +13,12 @@ module.exports = {
     // create: (req, res) => {
 
     // },
-    // update: (req, res) => {
+    update: (req, res) => {
+        Post.findOneAndUpdate({_id: req.params.id }, {title: req.body.title, content: req.body.content}).then(result => {
+            res.json(result)
+        })}
 
-    // },
     // destroy: (req, res) => {
         
     // }
-};
+}
