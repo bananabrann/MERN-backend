@@ -16,9 +16,9 @@ module.exports = {
     update: (req, res) => {
         Post.findOneAndUpdate({_id: req.params.id }, {title: req.body.title, content: req.body.content}).then(result => {
             res.json(result)
-        })}
+        })},
 
-    // destroy: (req, res) => {
-        
-    // }
+    destroy: (req, res) => {
+        Post.findOneAndDelete({_id: req.params.id }).then(res.direct("/"))
+    }
 }
