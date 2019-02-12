@@ -13,7 +13,7 @@ module.exports = {
     create: (req, res) => {
         Post.create({
             title: req.body.title,
-            content: req.body.title
+            content: req.body.content
         }).then(() => {
             res.redirect("/");
         });
